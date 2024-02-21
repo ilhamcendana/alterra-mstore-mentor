@@ -58,7 +58,7 @@ nav .right-cart-cta {
 .btn {  
   padding: 8px 24px;
   border-radius: 4px;
-  font-size: .875rem;
+  font-size: 1rem;
   cursor: pointer;
   color: #fff;
   background-color: #1d1d1d;
@@ -68,4 +68,8 @@ nav .right-cart-cta {
   background-color: #F44A5B;
   border: 1px solid #F44A5B;
   color: #fff;
+}
+
+.btn-primary:hover {
+  color: red;
 }
