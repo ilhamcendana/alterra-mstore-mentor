@@ -1,45 +1,25 @@
-import { useState } from "react";
+import {
+  Link,
+  Route,
+  RouterProvider,
+  Routes,
+  createBrowserRouter,
+} from "react-router-dom";
 import "./App.css";
-import Picker from "./components/Picker";
-import Result from "./components/Result";
+import Home from "./pages/home";
+import About from "./pages/about";
+import Help from "./pages/help";
+import Navbar from "./components/navbar";
 
 function App() {
-  const [myChoice, myChoiceSet] = useState(null);
-  const [opponentChoice, opponentChoiceSet] = useState(null);
-
-  function generateOpponentPicks() {
-    const randomNumber = Math.random();
-    const picks = randomNumber > 0.7 ? "batu" : randomNumber > 0.3 ? "gunting" : "kertas";
-    return picks;
-  }
-
-  function onPlayerChoosed(val) {
-      myChoiceSet(val);
-      opponentChoiceSet(generateOpponentPicks());
-  }
-
   return (
-    <div className="w-full">
-      <div className="container mx-auto">
-        <Result myChoice={myChoice} opponentChoice={opponentChoice} />
-        <div className="flex gap-4 justify-center">
-          <Picker
-            value="batu"
-            label="Batu"
-            onClick={() => onPlayerChoosed("batu")}
-          />
-          <Picker
-            value="gunting"
-            label="Gunting"
-            onClick={() => onPlayerChoosed("gunting")}
-          />
-          <Picker
-            value="kertas"
-            label="Kertas"
-            onClick={() => onPlayerChoosed("kertas")}
-          />
-        </div>
-      </div>
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/help" element={<Help />} />
+      </Routes>
     </div>
   );
 }
