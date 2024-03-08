@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
+import HomeBanner from "./home-banner";
+import HomeListCTA from "./home-list-cta";
 
 export default function Home() {
   return (
-    <div className="pt-32">
-      <h1>HOME</h1>
-    </div>
+    <main>
+      <HomeBanner />
+      <HomeListCTA />
+    </main>
   );
 }
