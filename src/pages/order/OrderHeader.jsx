@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from "../../components/Button";
 import { formatNumber } from "../../utils/helper";
 
@@ -11,8 +12,10 @@ export default function OrderHeader({
   const totalCost = () => {
     const filterBySelectedIngredients = selectedIngredients.map(
       (id) => allIngredients.find((item) => item?.id === id)?.price
-    );    
-    return `Rp${formatNumber(filterBySelectedIngredients.reduce((a,b) => a + b))}`;
+    );
+    return `Rp${formatNumber(
+      filterBySelectedIngredients.reduce((a, b) => a + b)
+    )}`;
   };
 
   return (
@@ -24,7 +27,9 @@ export default function OrderHeader({
           </div>
         )}
         <div className="flex items-center gap-4 max-w-sm w-full">
-          <Button disabled={isEmptySelectedIngredients}>Order Burger</Button>
+          <Link to="/order?done=true">
+            <Button disabled={isEmptySelectedIngredients}>Order Burger</Button>
+          </Link>
           {!isEmptySelectedIngredients && (
             <Button variant="secondary" onClick={onReset}>
               Reset
