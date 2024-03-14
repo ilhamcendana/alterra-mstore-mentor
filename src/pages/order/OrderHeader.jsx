@@ -27,8 +27,9 @@ export default function OrderHeader({
           </div>
         )}
         <div className="flex items-center gap-4 max-w-sm w-full">
-          <Link to="/order?done=true">
-            <Button disabled={isEmptySelectedIngredients}>Order Burger</Button>
+          <Link to="/order?done=true" onClick={(e) => e.preventDefault()}>
+            a
+            {/* <Button disabled={isEmptySelectedIngredients}>Order Burger</Button> */}
           </Link>
           {!isEmptySelectedIngredients && (
             <Button variant="secondary" onClick={onReset}>
